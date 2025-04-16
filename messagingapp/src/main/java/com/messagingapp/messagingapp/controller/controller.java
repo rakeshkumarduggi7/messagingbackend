@@ -4,6 +4,7 @@ import com.messagingapp.messagingapp.model.logindetails;
 import com.messagingapp.messagingapp.model.messageto;
 import com.messagingapp.messagingapp.model.requests;
 import com.messagingapp.messagingapp.service.loginservice;
+import com.messagingapp.messagingapp.service.messageservice;
 import com.messagingapp.messagingapp.service.requestsservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,8 @@ public class controller {
 loginservice Loginservice;
     @Autowired
     requestsservice rservice;
+    @Autowired
+    messageservice mservice;
 static private String usern;
     @PostMapping("/login")
     public String login(@RequestBody logindetails ld){
@@ -55,8 +58,8 @@ return rservice.getrequests(usern);
     public List<String> friends( ){
 return rservice.friends(usern);
     }
-//    @PostMapping("/friends/sendmessage")
-//    public List<String> sendmessage(@RequestBody messageto mes){
-//
-//    }
+    @PostMapping("/friends/sendmessage")
+    public List<String> sendmessage(@RequestBody messageto mes){
+return mservice.sendmessage(usern,mes);
+    }
 }

@@ -1,4 +1,6 @@
 how to use backend messaging app
+
+download this project to ur personal computer then....
 needs:
 ide , postman for testing api, MySQL workbench/database
 and set in application.properties the username , password ,database name ,url name

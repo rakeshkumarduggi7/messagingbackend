@@ -1,0 +1,79 @@
+how to use backend messaging app
+needs:
+ide , postman for testing api, MySQL workbench/database
+and set in application.properties the username , password ,database name ,url name
+of your mysql database/workbench
+spring.datasource.url=jdbc:mysql://localhost:3306/messageapp?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=0000
+
+change the above three appropriately as mentioned
+----------------------------------------
+
+to finally test signup for two profiles and send requests to each other and check how
+below.....
+
+1)first to signup yourself :
+go to postman 
+type localhost:8080/mesapp/signup 
+
+ {
+"username":"yourusername",
+"password":"yourpassword"
+}
+
+then set the type of command to post and execute the code
+-------------------------------------------------------------
+2)to login 
+type localhost:8080/mesapp/login 
+ {
+"username":"yourusername",
+"password":"yourpassword"
+} 
+the above is sent as a body json format
+then set the type of command to post and execute the code
+------------------------------------------------------------------------------------
+3)for friend suggestions
+
+type localhost:8080/mesapp/suggest
+this gets you usernames of others who signedup
+
+----------------------------------------------------------------------------------
+4)send friend request
+
+ type localhost:8080/mesapp/suggest/sendrequest
+ {
+"fromun":"your username",
+"toun":"username of who u want to connect"
+} 
+and post and execute
+----------------------------------------------------------------------------------
+5)to check if u have any request
+ type localhost:8080/mesapp/requests
+you will get all the usernames that sent u request
+and u can accept by
+ 
+ type localhost:8080/mesapp/requests
+Select POST method. Go to Body tab. Select x-www-form-urlencoded. 
+Add a key-value pair: 
+Key: from Value: (e.g.) john_doe
+Hit Send.
+this will accept the request and you are friends now
+----------------------------------
+6)to check friends list
+ type localhost:8080/mesapp/friends
+set the method to get and click send
+------------------------------------
+7)to send message 
+ type localhost:8080/mesapp/friends/sendmessage
+
+in json format body
+
+{
+"toun":"username of who u want to send the message",
+"message":"message you want to send"
+}
+set to post and click send
+--------------------------------------------------------------
+
+

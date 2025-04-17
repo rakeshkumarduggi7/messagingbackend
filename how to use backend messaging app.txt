@@ -1,5 +1,8 @@
 how to use backend messaging app
 
+firstly this is local project not online only shows how to use database java spring
+sql to create a backened and behaves like a messaging app core features
+
 download this project to ur personal computer then....
 needs:
 ide , postman for testing api, MySQL workbench/database
